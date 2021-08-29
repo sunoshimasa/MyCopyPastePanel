@@ -31,6 +31,7 @@ import javax.swing.SwingConstants;
 
 // flat LAF
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
+import javax.swing.border.LineBorder;
 
 public class MyCopyPastePanel extends JFrame {
 	/**
@@ -383,7 +384,8 @@ public class MyCopyPastePanel extends JFrame {
 		tabbedPane.setBackgroundAt(0, new Color(245, 255, 250));
 		tabbedPane.setEnabledAt(0, true);
 		ButtonTab.setLayout(null);
-
+		
+		B00.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		B00.setText(C00_str);
 		B00.setBounds(new Rectangle(4, 22, 170, 20));
 		B00.setToolTipText(C00_str);
@@ -398,9 +400,10 @@ public class MyCopyPastePanel extends JFrame {
 		B00.setHorizontalTextPosition(SwingConstants.LEADING);
 		B00.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B00.setAutoscrolls(true);
-		B00.setBounds(4, 10, 158, 20);
+		B00.setBounds(3, 10, 158, 20);
 		ButtonTab.add(B00);
 
+		B01.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		B01.setText(C01_str);
 		B01.setBounds(new Rectangle(4, 22, 170, 20));
 		B01.setToolTipText(C01_str);
@@ -415,9 +418,10 @@ public class MyCopyPastePanel extends JFrame {
 		B01.setHorizontalTextPosition(SwingConstants.LEADING);
 		B01.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B01.setAutoscrolls(true);
-		B01.setBounds(4, 34, 158, 20);
+		B01.setBounds(3, 34, 158, 20);
 		ButtonTab.add(B01);
 
+		B02.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		B02.setText(C02_str);
 		B02.setBounds(new Rectangle(4, 22, 170, 20));
 		B02.setToolTipText(C02_str);
@@ -432,9 +436,10 @@ public class MyCopyPastePanel extends JFrame {
 		B02.setHorizontalTextPosition(SwingConstants.LEADING);
 		B02.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B02.setAutoscrolls(true);
-		B02.setBounds(4, 58, 158, 20);
+		B02.setBounds(3, 58, 158, 20);
 		ButtonTab.add(B02);
 
+		B03.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		B03.setText(C03_str);
 		B03.setBounds(new Rectangle(4, 22, 170, 20));
 		B03.setToolTipText(C03_str);
@@ -452,6 +457,7 @@ public class MyCopyPastePanel extends JFrame {
 		B03.setBounds(16, 82, 158, 20);
 		ButtonTab.add(B03);
 
+		B04.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		B04.setText(C04_str);
 		B04.setBounds(new Rectangle(4, 22, 170, 20));
 		B04.setToolTipText(C04_str);
@@ -469,6 +475,7 @@ public class MyCopyPastePanel extends JFrame {
 		B04.setBounds(16, 106, 158, 20);
 		ButtonTab.add(B04);
 
+		B05.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		B05.setText(C05_str);
 		B05.setBounds(new Rectangle(4, 22, 170, 20));
 		B05.setToolTipText(C05_str);
@@ -486,6 +493,7 @@ public class MyCopyPastePanel extends JFrame {
 		B05.setBounds(16, 130, 158, 20);
 		ButtonTab.add(B05);
 
+		B06.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		B06.setText(C06_str);
 		B06.setBounds(new Rectangle(4, 22, 170, 20));
 		B06.setToolTipText(C06_str);
@@ -500,9 +508,10 @@ public class MyCopyPastePanel extends JFrame {
 		B06.setHorizontalTextPosition(SwingConstants.LEADING);
 		B06.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B06.setAutoscrolls(true);
-		B06.setBounds(4, 154, 158, 20);
+		B06.setBounds(3, 154, 158, 20);
 		ButtonTab.add(B06);
 
+		B07.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		B07.setText(C07_str);
 		B07.setBounds(new Rectangle(4, 22, 170, 20));
 		B07.setToolTipText(C07_str);
@@ -517,9 +526,10 @@ public class MyCopyPastePanel extends JFrame {
 		B07.setHorizontalTextPosition(SwingConstants.LEADING);
 		B07.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B07.setAutoscrolls(true);
-		B07.setBounds(4, 178, 158, 20);
+		B07.setBounds(3, 178, 158, 20);
 		ButtonTab.add(B07);
 
+		B08.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		B08.setText(C08_str);
 		B08.setBounds(new Rectangle(4, 22, 170, 20));
 		B08.setToolTipText(C08_str);
@@ -534,9 +544,10 @@ public class MyCopyPastePanel extends JFrame {
 		B08.setHorizontalTextPosition(SwingConstants.LEADING);
 		B08.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B08.setAutoscrolls(true);
-		B08.setBounds(4, 202, 158, 21);
+		B08.setBounds(3, 202, 158, 21);
 		ButtonTab.add(B08);
 
+		B09.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		B09.setText(C09_str);
 		B09.setBounds(new Rectangle(4, 22, 170, 20));
 		B09.setToolTipText(C09_str);
@@ -554,6 +565,7 @@ public class MyCopyPastePanel extends JFrame {
 		B09.setBounds(16, 226, 158, 21);
 		ButtonTab.add(B09);
 
+		B10.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		B10.setText(C10_str);
 		B10.setBounds(new Rectangle(4, 22, 170, 20));
 		B10.setToolTipText(C10_str);
@@ -571,6 +583,7 @@ public class MyCopyPastePanel extends JFrame {
 		B10.setBounds(16, 250, 158, 21);
 		ButtonTab.add(B10);
 
+		B11.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		B11.setText(C11_str);
 		B11.setBounds(new Rectangle(4, 22, 170, 20));
 		B11.setToolTipText(C11_str);
@@ -588,6 +601,7 @@ public class MyCopyPastePanel extends JFrame {
 		B11.setBounds(16, 274, 158, 21);
 		ButtonTab.add(B11);
 
+		B12.setBorder(new LineBorder(new Color(220, 20, 60)));
 		B12.setText(C12_str);
 		B12.setBounds(new Rectangle(4, 22, 170, 20));
 		B12.setToolTipText(C12_str);
@@ -602,9 +616,10 @@ public class MyCopyPastePanel extends JFrame {
 		B12.setHorizontalTextPosition(SwingConstants.LEADING);
 		B12.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B12.setAutoscrolls(true);
-		B12.setBounds(4, 298, 158, 21);
+		B12.setBounds(3, 298, 158, 21);
 		ButtonTab.add(B12);
 
+		B13.setBorder(new LineBorder(new Color(220, 20, 60)));
 		B13.setText(C13_str);
 		B13.setBounds(new Rectangle(4, 22, 170, 20));
 		B13.setToolTipText(C13_str);
@@ -619,9 +634,10 @@ public class MyCopyPastePanel extends JFrame {
 		B13.setHorizontalTextPosition(SwingConstants.LEADING);
 		B13.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B13.setAutoscrolls(true);
-		B13.setBounds(4, 322, 158, 21);
+		B13.setBounds(3, 322, 158, 21);
 		ButtonTab.add(B13);
 
+		B14.setBorder(new LineBorder(new Color(220, 20, 60)));
 		B14.setText(C14_str);
 		B14.setBounds(new Rectangle(4, 22, 170, 20));
 		B14.setToolTipText(C14_str);
@@ -636,9 +652,10 @@ public class MyCopyPastePanel extends JFrame {
 		B14.setHorizontalTextPosition(SwingConstants.LEADING);
 		B14.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B14.setAutoscrolls(true);
-		B14.setBounds(4, 346, 158, 21);
+		B14.setBounds(3, 346, 158, 21);
 		ButtonTab.add(B14);
-
+		
+		B15.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		B15.setText(C15_str);
 		B15.setBounds(new Rectangle(4, 22, 170, 20));
 		B15.addActionListener(new ActionListener() {
@@ -654,7 +671,8 @@ public class MyCopyPastePanel extends JFrame {
 		B15.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B15.setBounds(16, 370, 158, 21);
 		ButtonTab.add(B15);
-
+		
+		B16.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		B16.setText(C16_str);
 		B16.setBounds(new Rectangle(4, 22, 170, 20));
 		B16.addActionListener(new ActionListener() {
@@ -670,7 +688,8 @@ public class MyCopyPastePanel extends JFrame {
 		B16.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B16.setBounds(16, 394, 158, 21);
 		ButtonTab.add(B16);
-
+		
+		B17.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		B17.setText(C17_str);
 		B17.setBounds(new Rectangle(4, 22, 170, 20));
 		B17.addActionListener(new ActionListener() {
@@ -686,7 +705,8 @@ public class MyCopyPastePanel extends JFrame {
 		B17.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B17.setBounds(16, 418, 158, 21);
 		ButtonTab.add(B17);
-
+		
+		B18.setBorder(new LineBorder(new Color(138, 43, 226)));
 		B18.setText(C18_str);
 		B18.setBounds(new Rectangle(4, 22, 170, 20));
 		B18.addActionListener(new ActionListener() {
@@ -700,9 +720,10 @@ public class MyCopyPastePanel extends JFrame {
 		B18.setHorizontalTextPosition(SwingConstants.LEADING);
 		B18.setHorizontalAlignment(SwingConstants.LEADING);
 		B18.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		B18.setBounds(4, 442, 158, 21);
+		B18.setBounds(3, 442, 158, 21);
 		ButtonTab.add(B18);
-
+		
+		B19.setBorder(new LineBorder(new Color(138, 43, 226)));
 		B19.setText(C19_str);
 		B19.setBounds(new Rectangle(4, 22, 170, 20));
 		B19.addActionListener(new ActionListener() {
@@ -716,9 +737,10 @@ public class MyCopyPastePanel extends JFrame {
 		B19.setHorizontalTextPosition(SwingConstants.LEADING);
 		B19.setHorizontalAlignment(SwingConstants.LEADING);
 		B19.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		B19.setBounds(4, 466, 158, 21);
+		B19.setBounds(3, 466, 158, 21);
 		ButtonTab.add(B19);
-
+		
+		B20.setBorder(new LineBorder(new Color(138, 43, 226)));
 		B20.setText(C20_str);
 		B20.setBounds(new Rectangle(4, 22, 170, 20));
 		B20.addActionListener(new ActionListener() {
@@ -732,9 +754,10 @@ public class MyCopyPastePanel extends JFrame {
 		B20.setHorizontalTextPosition(SwingConstants.LEADING);
 		B20.setHorizontalAlignment(SwingConstants.LEADING);
 		B20.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		B20.setBounds(4, 490, 158, 21);
+		B20.setBounds(3, 490, 158, 21);
 		ButtonTab.add(B20);
-
+		
+		B21.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		B21.setText(C21_str);
 		B21.setBounds(new Rectangle(4, 22, 170, 20));
 		B21.addActionListener(new ActionListener() {
@@ -750,7 +773,8 @@ public class MyCopyPastePanel extends JFrame {
 		B21.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B21.setBounds(184, 10, 170, 20);
 		ButtonTab.add(B21);
-
+		
+		B22.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		B22.setText(C22_str);
 		B22.setBounds(new Rectangle(4, 22, 170, 20));
 		B22.addActionListener(new ActionListener() {
@@ -766,7 +790,8 @@ public class MyCopyPastePanel extends JFrame {
 		B22.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B22.setBounds(184, 34, 170, 20);
 		ButtonTab.add(B22);
-
+		
+		B23.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		B23.setText(C23_str);
 		B23.setBounds(new Rectangle(4, 22, 170, 20));
 		B23.addActionListener(new ActionListener() {
@@ -782,7 +807,8 @@ public class MyCopyPastePanel extends JFrame {
 		B23.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B23.setBounds(184, 58, 170, 20);
 		ButtonTab.add(B23);
-
+		
+		B24.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		B24.setText(C24_str);
 		B24.setBounds(new Rectangle(4, 22, 170, 20));
 		B24.addActionListener(new ActionListener() {
@@ -798,7 +824,8 @@ public class MyCopyPastePanel extends JFrame {
 		B24.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B24.setBounds(196, 82, 158, 20);
 		ButtonTab.add(B24);
-
+		
+		B25.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		B25.setText(C25_str);
 		B25.setBounds(new Rectangle(4, 22, 170, 20));
 		B25.addActionListener(new ActionListener() {
@@ -814,7 +841,8 @@ public class MyCopyPastePanel extends JFrame {
 		B25.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B25.setBounds(196, 106, 158, 20);
 		ButtonTab.add(B25);
-
+		
+		B26.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		B26.setText(C26_str);
 		B26.setBounds(new Rectangle(4, 22, 170, 20));
 		B26.addActionListener(new ActionListener() {
@@ -830,7 +858,8 @@ public class MyCopyPastePanel extends JFrame {
 		B26.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B26.setBounds(196, 130, 158, 20);
 		ButtonTab.add(B26);
-
+		
+		B27.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		B27.setText(C27_str);
 		B27.setBounds(new Rectangle(4, 22, 170, 20));
 		B27.addActionListener(new ActionListener() {
@@ -846,7 +875,8 @@ public class MyCopyPastePanel extends JFrame {
 		B27.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B27.setBounds(184, 154, 170, 20);
 		ButtonTab.add(B27);
-
+		
+		B28.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		B28.setText(C28_str);
 		B28.setBounds(new Rectangle(4, 22, 170, 20));
 		B28.addActionListener(new ActionListener() {
@@ -862,7 +892,8 @@ public class MyCopyPastePanel extends JFrame {
 		B28.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B28.setBounds(184, 178, 170, 20);
 		ButtonTab.add(B28);
-
+		
+		B29.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		B29.setText(C29_str);
 		B29.setBounds(new Rectangle(4, 22, 170, 20));
 		B29.addActionListener(new ActionListener() {
@@ -878,7 +909,8 @@ public class MyCopyPastePanel extends JFrame {
 		B29.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B29.setBounds(184, 202, 170, 20);
 		ButtonTab.add(B29);
-
+		
+		B30.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		B30.setText(C30_str);
 		B30.setToolTipText(C30_str);
 		B30.addActionListener(new ActionListener() {
@@ -894,7 +926,8 @@ public class MyCopyPastePanel extends JFrame {
 		B30.setBounds(new Rectangle(4, 22, 170, 20));
 		B30.setBounds(196, 226, 158, 20);
 		ButtonTab.add(B30);
-
+		
+		B31.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		B31.setText(C31_str);
 		B31.setToolTipText(C31_str);
 		B31.addActionListener(new ActionListener() {
@@ -910,7 +943,8 @@ public class MyCopyPastePanel extends JFrame {
 		B31.setBounds(new Rectangle(4, 22, 170, 20));
 		B31.setBounds(196, 250, 158, 20);
 		ButtonTab.add(B31);
-
+		
+		B32.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		B32.setText(C32_str);
 		B32.setToolTipText(C32_str);
 		B32.addActionListener(new ActionListener() {
@@ -926,7 +960,8 @@ public class MyCopyPastePanel extends JFrame {
 		B32.setBounds(new Rectangle(4, 22, 170, 20));
 		B32.setBounds(196, 274, 158, 20);
 		ButtonTab.add(B32);
-
+		
+		B33.setBorder(new LineBorder(new Color(220, 20, 60)));
 		B33.setText(C33_str);
 		B33.setToolTipText(C33_str);
 		B33.addActionListener(new ActionListener() {
@@ -942,7 +977,8 @@ public class MyCopyPastePanel extends JFrame {
 		B33.setBounds(new Rectangle(4, 22, 170, 20));
 		B33.setBounds(184, 298, 170, 20);
 		ButtonTab.add(B33);
-
+		
+		B34.setBorder(new LineBorder(new Color(220, 20, 60)));
 		B34.setText(C34_str);
 		B34.setToolTipText(C34_str);
 		B34.addActionListener(new ActionListener() {
@@ -958,7 +994,8 @@ public class MyCopyPastePanel extends JFrame {
 		B34.setBounds(new Rectangle(4, 22, 170, 20));
 		B34.setBounds(184, 322, 170, 20);
 		ButtonTab.add(B34);
-
+		
+		B35.setBorder(new LineBorder(new Color(220, 20, 60)));
 		B35.setText(C35_str);
 		B35.setToolTipText(C35_str);
 		B35.addActionListener(new ActionListener() {
@@ -974,7 +1011,8 @@ public class MyCopyPastePanel extends JFrame {
 		B35.setBounds(new Rectangle(4, 22, 170, 20));
 		B35.setBounds(184, 346, 170, 20);
 		ButtonTab.add(B35);
-
+		
+		B36.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		B36.setText(C36_str);
 		B36.setToolTipText(C36_str);
 		B36.addActionListener(new ActionListener() {
@@ -990,7 +1028,8 @@ public class MyCopyPastePanel extends JFrame {
 		B36.setBounds(new Rectangle(4, 22, 170, 20));
 		B36.setBounds(198, 370, 158, 20);
 		ButtonTab.add(B36);
-
+		
+		B37.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		B37.setText(C37_str);
 		B37.setToolTipText(C37_str);
 		B37.addActionListener(new ActionListener() {
@@ -1006,7 +1045,8 @@ public class MyCopyPastePanel extends JFrame {
 		B37.setBounds(new Rectangle(4, 22, 170, 20));
 		B37.setBounds(198, 394, 158, 20);
 		ButtonTab.add(B37);
-
+		
+		B38.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		B38.setText(C38_str);
 		B38.setToolTipText(C38_str);
 		B38.addActionListener(new ActionListener() {
@@ -1022,7 +1062,8 @@ public class MyCopyPastePanel extends JFrame {
 		B38.setBounds(new Rectangle(4, 22, 170, 20));
 		B38.setBounds(198, 418, 158, 20);
 		ButtonTab.add(B38);
-
+		
+		B39.setBorder(new LineBorder(new Color(138, 43, 226)));
 		B39.setText(C39_str);
 		B39.setToolTipText(C39_str);
 		B39.addActionListener(new ActionListener() {
@@ -1038,6 +1079,7 @@ public class MyCopyPastePanel extends JFrame {
 		B39.setBounds(new Rectangle(4, 22, 170, 20));
 		B39.setBounds(186, 442, 170, 20);
 		ButtonTab.add(B39);
+		B40.setBorder(new LineBorder(new Color(138, 43, 226)));
 
 		B40.setText(C40_str);
 		B40.setToolTipText(C40_str);
@@ -1054,7 +1096,8 @@ public class MyCopyPastePanel extends JFrame {
 		B40.setBounds(new Rectangle(4, 22, 170, 20));
 		B40.setBounds(186, 466, 170, 20);
 		ButtonTab.add(B40);
-
+		
+		B41.setBorder(new LineBorder(new Color(138, 43, 226)));
 		B41.setText(C41_str);
 		B41.setToolTipText(C41_str);
 		B41.addActionListener(new ActionListener() {
@@ -1079,6 +1122,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.setLayout(null);
 
 		C00 = new JTextField();
+		C00.setBorder(new LineBorder(new Color(255, 215, 0)));
 		C00.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1090,11 +1134,12 @@ public class MyCopyPastePanel extends JFrame {
 		C00.setToolTipText("double click to delete text");
 		C00.setText(C00_str);
 		C00.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C00.setBounds(4, 10, 144, 20);
+		C00.setBounds(3, 10, 142, 20);
 		ConfigTab.add(C00);
 		C00.setColumns(10);
 
 		C01 = new JTextField();
+		C01.setBorder(new LineBorder(new Color(255, 215, 0)));
 		C01.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1106,11 +1151,12 @@ public class MyCopyPastePanel extends JFrame {
 		C01.setToolTipText("double click to delete text");
 		C01.setText(C01_str);
 		C01.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C01.setBounds(4, 34, 142, 20);
+		C01.setBounds(3, 34, 142, 20);
 		ConfigTab.add(C01);
 		C01.setColumns(10);
 
 		C02 = new JTextField();
+		C02.setBorder(new LineBorder(new Color(255, 215, 0)));
 		C02.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1122,11 +1168,12 @@ public class MyCopyPastePanel extends JFrame {
 		C02.setToolTipText("double click to delete text");
 		C02.setText(C02_str);
 		C02.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C02.setBounds(4, 58, 142, 20);
+		C02.setBounds(3, 58, 142, 20);
 		ConfigTab.add(C02);
 		C02.setColumns(10);
 
 		C03 = new JTextField();
+		C03.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		C03.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1138,11 +1185,12 @@ public class MyCopyPastePanel extends JFrame {
 		C03.setToolTipText("double click to delete text");
 		C03.setText(C03_str);
 		C03.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C03.setBounds(14, 82, 128, 20);
+		C03.setBounds(17, 82, 128, 20);
 		ConfigTab.add(C03);
 		C03.setColumns(10);
 
 		C04 = new JTextField();
+		C04.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		C04.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1154,11 +1202,12 @@ public class MyCopyPastePanel extends JFrame {
 		C04.setToolTipText("double click to delete text");
 		C04.setText(C04_str);
 		C04.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C04.setBounds(14, 106, 128, 20);
+		C04.setBounds(17, 106, 128, 20);
 		ConfigTab.add(C04);
 		C04.setColumns(10);
 
 		C05 = new JTextField();
+		C05.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		C05.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1170,11 +1219,12 @@ public class MyCopyPastePanel extends JFrame {
 		C05.setToolTipText("double click to delete text");
 		C05.setText(C05_str);
 		C05.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C05.setBounds(14, 130, 128, 20);
+		C05.setBounds(17, 130, 128, 20);
 		ConfigTab.add(C05);
 		C05.setColumns(10);
 
 		C06 = new JTextField();
+		C06.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		C06.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1186,11 +1236,12 @@ public class MyCopyPastePanel extends JFrame {
 		C06.setToolTipText("double click to delete text");
 		C06.setText(C06_str);
 		C06.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C06.setBounds(4, 154, 142, 20);
+		C06.setBounds(3, 154, 142, 20);
 		ConfigTab.add(C06);
 		C06.setColumns(10);
 
 		C07 = new JTextField();
+		C07.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		C07.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1202,11 +1253,12 @@ public class MyCopyPastePanel extends JFrame {
 		C07.setToolTipText("double click to delete text");
 		C07.setText(C07_str);
 		C07.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C07.setBounds(4, 178, 142, 20);
+		C07.setBounds(3, 178, 142, 20);
 		ConfigTab.add(C07);
 		C07.setColumns(10);
 
 		C08 = new JTextField();
+		C08.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		C08.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1218,11 +1270,12 @@ public class MyCopyPastePanel extends JFrame {
 		C08.setToolTipText("double click to delete text");
 		C08.setText(C08_str);
 		C08.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C08.setBounds(4, 202, 142, 20);
+		C08.setBounds(3, 202, 142, 20);
 		ConfigTab.add(C08);
 		C08.setColumns(10);
 
 		C09 = new JTextField();
+		C09.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		C09.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1234,11 +1287,12 @@ public class MyCopyPastePanel extends JFrame {
 		C09.setToolTipText("double click to delete text");
 		C09.setText(C09_str);
 		C09.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C09.setBounds(14, 226, 128, 20);
+		C09.setBounds(17, 226, 128, 20);
 		ConfigTab.add(C09);
 		C09.setColumns(10);
 
 		C10 = new JTextField();
+		C10.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		C10.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1250,11 +1304,12 @@ public class MyCopyPastePanel extends JFrame {
 		C10.setToolTipText("double click to delete text");
 		C10.setText(C10_str);
 		C10.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C10.setBounds(14, 250, 128, 20);
+		C10.setBounds(17, 250, 128, 20);
 		ConfigTab.add(C10);
 		C10.setColumns(10);
 
 		C11 = new JTextField();
+		C11.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		C11.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1266,11 +1321,12 @@ public class MyCopyPastePanel extends JFrame {
 		C11.setToolTipText("double click to delete text");
 		C11.setText(C11_str);
 		C11.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C11.setBounds(14, 274, 128, 20);
+		C11.setBounds(17, 274, 128, 20);
 		ConfigTab.add(C11);
 		C11.setColumns(10);
 
 		C12 = new JTextField();
+		C12.setBorder(new LineBorder(new Color(220, 20, 60)));
 		C12.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1282,11 +1338,12 @@ public class MyCopyPastePanel extends JFrame {
 		C12.setToolTipText("double click to delete text");
 		C12.setText(C12_str);
 		C12.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C12.setBounds(4, 298, 142, 20);
+		C12.setBounds(3, 298, 142, 20);
 		ConfigTab.add(C12);
 		C12.setColumns(10);
 
 		C13 = new JTextField();
+		C13.setBorder(new LineBorder(new Color(220, 20, 60)));
 		C13.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1298,11 +1355,12 @@ public class MyCopyPastePanel extends JFrame {
 		C13.setToolTipText("double click to delete text");
 		C13.setText(C13_str);
 		C13.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C13.setBounds(4, 322, 142, 20);
+		C13.setBounds(3, 322, 142, 20);
 		ConfigTab.add(C13);
 		C13.setColumns(10);
 
 		C14 = new JTextField();
+		C14.setBorder(new LineBorder(new Color(220, 20, 60)));
 		C14.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1314,11 +1372,12 @@ public class MyCopyPastePanel extends JFrame {
 		C14.setToolTipText("double click to delete text");
 		C14.setText(C14_str);
 		C14.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C14.setBounds(4, 346, 142, 20);
+		C14.setBounds(3, 346, 142, 20);
 		ConfigTab.add(C14);
 		C14.setColumns(10);
 
 		C15 = new JTextField();
+		C15.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		C15.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1330,11 +1389,12 @@ public class MyCopyPastePanel extends JFrame {
 		C15.setToolTipText("double click to delete text");
 		C15.setText(C15_str);
 		C15.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C15.setBounds(14, 370, 128, 20);
+		C15.setBounds(17, 370, 128, 20);
 		ConfigTab.add(C15);
 		C15.setColumns(10);
 
 		C16 = new JTextField();
+		C16.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		C16.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1346,11 +1406,12 @@ public class MyCopyPastePanel extends JFrame {
 		C16.setToolTipText("double click to delete text");
 		C16.setText(C16_str);
 		C16.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C16.setBounds(14, 394, 128, 20);
+		C16.setBounds(17, 394, 128, 20);
 		ConfigTab.add(C16);
 		C16.setColumns(10);
 
 		C17 = new JTextField();
+		C17.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		C17.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1362,11 +1423,12 @@ public class MyCopyPastePanel extends JFrame {
 		C17.setToolTipText("double click to delete text");
 		C17.setText(C17_str);
 		C17.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C17.setBounds(14, 418, 128, 20);
+		C17.setBounds(17, 418, 128, 20);
 		ConfigTab.add(C17);
 		C17.setColumns(10);
 
 		C18 = new JTextField();
+		C18.setBorder(new LineBorder(new Color(138, 43, 226)));
 		C18.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1378,11 +1440,12 @@ public class MyCopyPastePanel extends JFrame {
 		C18.setToolTipText("double click to delete text");
 		C18.setText(C18_str);
 		C18.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C18.setBounds(4, 442, 142, 20);
+		C18.setBounds(3, 442, 142, 20);
 		ConfigTab.add(C18);
 		C18.setColumns(10);
 
 		C19 = new JTextField();
+		C19.setBorder(new LineBorder(new Color(138, 43, 226)));
 		C19.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1394,11 +1457,12 @@ public class MyCopyPastePanel extends JFrame {
 		C19.setToolTipText("double click to delete text");
 		C19.setText(C19_str);
 		C19.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C19.setBounds(4, 466, 142, 20);
+		C19.setBounds(3, 466, 142, 20);
 		ConfigTab.add(C19);
 		C19.setColumns(10);
 
 		C20 = new JTextField();
+		C20.setBorder(new LineBorder(new Color(138, 43, 226)));
 		C20.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1410,11 +1474,12 @@ public class MyCopyPastePanel extends JFrame {
 		C20.setToolTipText("double click to delete text");
 		C20.setText(C20_str);
 		C20.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C20.setBounds(4, 490, 142, 19);
+		C20.setBounds(3, 490, 142, 19);
 		ConfigTab.add(C20);
 		C20.setColumns(10);
 
 		C21 = new JTextField();
+		C21.setBorder(new LineBorder(new Color(255, 215, 0)));
 		C21.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1426,11 +1491,12 @@ public class MyCopyPastePanel extends JFrame {
 		C21.setToolTipText("double click to delete text");
 		C21.setText(C21_str);
 		C21.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C21.setBounds(180, 10, 144, 20);
+		C21.setBounds(179, 10, 144, 20);
 		ConfigTab.add(C21);
 		C21.setColumns(10);
 
 		C22 = new JTextField();
+		C22.setBorder(new LineBorder(new Color(255, 215, 0)));
 		C22.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1442,11 +1508,12 @@ public class MyCopyPastePanel extends JFrame {
 		C22.setToolTipText("double click to delete text");
 		C22.setText(C22_str);
 		C22.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C22.setBounds(180, 34, 144, 20);
+		C22.setBounds(179, 34, 144, 20);
 		ConfigTab.add(C22);
 		C22.setColumns(10);
 
 		C23 = new JTextField();
+		C23.setBorder(new LineBorder(new Color(255, 215, 0)));
 		C23.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1458,11 +1525,12 @@ public class MyCopyPastePanel extends JFrame {
 		C23.setToolTipText("double click to delete text");
 		C23.setText(C23_str);
 		C23.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C23.setBounds(180, 58, 144, 20);
+		C23.setBounds(179, 58, 144, 20);
 		ConfigTab.add(C23);
 		C23.setColumns(10);
 
 		C24 = new JTextField();
+		C24.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		C24.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1474,11 +1542,12 @@ public class MyCopyPastePanel extends JFrame {
 		C24.setToolTipText("double click to delete text");
 		C24.setText(C24_str);
 		C24.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C24.setBounds(194, 82, 128, 19);
+		C24.setBounds(195, 82, 128, 20);
 		ConfigTab.add(C24);
 		C24.setColumns(10);
 
 		C25 = new JTextField();
+		C25.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		C25.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1490,11 +1559,12 @@ public class MyCopyPastePanel extends JFrame {
 		C25.setToolTipText("double click to delete text");
 		C25.setText(C25_str);
 		C25.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C25.setBounds(194, 106, 128, 19);
+		C25.setBounds(195, 106, 128, 20);
 		ConfigTab.add(C25);
 		C25.setColumns(10);
 
 		C26 = new JTextField();
+		C26.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		C26.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1506,11 +1576,12 @@ public class MyCopyPastePanel extends JFrame {
 		C26.setToolTipText("double click to delete text");
 		C26.setText(C26_str);
 		C26.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C26.setBounds(194, 130, 128, 19);
+		C26.setBounds(195, 130, 128, 20);
 		ConfigTab.add(C26);
 		C26.setColumns(10);
 
 		C27 = new JTextField();
+		C27.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		C27.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1522,11 +1593,12 @@ public class MyCopyPastePanel extends JFrame {
 		C27.setToolTipText("double click to delete text");
 		C27.setText(C27_str);
 		C27.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C27.setBounds(180, 154, 144, 19);
+		C27.setBounds(179, 154, 144, 20);
 		ConfigTab.add(C27);
 		C27.setColumns(10);
 
 		C28 = new JTextField();
+		C28.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		C28.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1538,11 +1610,12 @@ public class MyCopyPastePanel extends JFrame {
 		C28.setToolTipText("double click to delete text");
 		C28.setText(C28_str);
 		C28.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C28.setBounds(180, 178, 144, 19);
+		C28.setBounds(179, 178, 144, 20);
 		ConfigTab.add(C28);
 		C28.setColumns(10);
 
 		C29 = new JTextField();
+		C29.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		C29.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1554,11 +1627,12 @@ public class MyCopyPastePanel extends JFrame {
 		C29.setToolTipText("double click to delete text");
 		C29.setText(C29_str);
 		C29.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		C29.setBounds(180, 202, 144, 19);
+		C29.setBounds(179, 202, 144, 20);
 		ConfigTab.add(C29);
 		C29.setColumns(10);
 
 		C30 = new JTextField();
+		C30.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		C30.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1571,10 +1645,11 @@ public class MyCopyPastePanel extends JFrame {
 		C30.setText(C30_str);
 		C30.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		C30.setColumns(10);
-		C30.setBounds(192, 226, 128, 20);
+		C30.setBounds(193, 226, 128, 20);
 		ConfigTab.add(C30);
 
 		C31 = new JTextField();
+		C31.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		C31.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1587,10 +1662,11 @@ public class MyCopyPastePanel extends JFrame {
 		C31.setText(C31_str);
 		C31.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		C31.setColumns(10);
-		C31.setBounds(192, 250, 128, 20);
+		C31.setBounds(193, 250, 128, 20);
 		ConfigTab.add(C31);
 
 		C32 = new JTextField();
+		C32.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		C32.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1603,10 +1679,11 @@ public class MyCopyPastePanel extends JFrame {
 		C32.setText(C32_str);
 		C32.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		C32.setColumns(10);
-		C32.setBounds(192, 274, 128, 20);
+		C32.setBounds(193, 274, 128, 20);
 		ConfigTab.add(C32);
 
 		C33 = new JTextField();
+		C33.setBorder(new LineBorder(new Color(220, 20, 60)));
 		C33.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1619,10 +1696,11 @@ public class MyCopyPastePanel extends JFrame {
 		C33.setText(C33_str);
 		C33.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		C33.setColumns(10);
-		C33.setBounds(178, 298, 144, 20);
+		C33.setBounds(179, 298, 144, 20);
 		ConfigTab.add(C33);
 
 		C34 = new JTextField();
+		C34.setBorder(new LineBorder(new Color(220, 20, 60)));
 		C34.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1635,10 +1713,11 @@ public class MyCopyPastePanel extends JFrame {
 		C34.setText(C34_str);
 		C34.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		C34.setColumns(10);
-		C34.setBounds(178, 322, 144, 20);
+		C34.setBounds(179, 322, 144, 20);
 		ConfigTab.add(C34);
 
 		C35 = new JTextField();
+		C35.setBorder(new LineBorder(new Color(220, 20, 60)));
 		C35.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1651,10 +1730,11 @@ public class MyCopyPastePanel extends JFrame {
 		C35.setText(C35_str);
 		C35.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		C35.setColumns(10);
-		C35.setBounds(178, 346, 144, 20);
+		C35.setBounds(179, 346, 144, 20);
 		ConfigTab.add(C35);
 
 		C36 = new JTextField();
+		C36.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		C36.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1667,10 +1747,11 @@ public class MyCopyPastePanel extends JFrame {
 		C36.setText((String) null);
 		C36.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		C36.setColumns(10);
-		C36.setBounds(192, 370, 128, 20);
+		C36.setBounds(193, 370, 128, 20);
 		ConfigTab.add(C36);
 
 		C37 = new JTextField();
+		C37.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		C37.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1683,10 +1764,11 @@ public class MyCopyPastePanel extends JFrame {
 		C37.setText(C37_str);
 		C37.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		C37.setColumns(10);
-		C37.setBounds(192, 394, 128, 20);
+		C37.setBounds(193, 394, 128, 20);
 		ConfigTab.add(C37);
 
 		C38 = new JTextField();
+		C38.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		C38.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1699,10 +1781,11 @@ public class MyCopyPastePanel extends JFrame {
 		C38.setText(C38_str);
 		C38.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		C38.setColumns(10);
-		C38.setBounds(192, 418, 128, 20);
+		C38.setBounds(193, 418, 128, 20);
 		ConfigTab.add(C38);
 
 		C39 = new JTextField();
+		C39.setBorder(new LineBorder(new Color(138, 43, 226)));
 		C39.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1715,10 +1798,11 @@ public class MyCopyPastePanel extends JFrame {
 		C39.setText(C39_str);
 		C39.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		C39.setColumns(10);
-		C39.setBounds(178, 442, 144, 20);
+		C39.setBounds(179, 442, 144, 20);
 		ConfigTab.add(C39);
 
 		C40 = new JTextField();
+		C40.setBorder(new LineBorder(new Color(138, 43, 226)));
 		C40.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1731,10 +1815,11 @@ public class MyCopyPastePanel extends JFrame {
 		C40.setText(C40_str);
 		C40.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		C40.setColumns(10);
-		C40.setBounds(178, 466, 144, 20);
+		C40.setBounds(179, 466, 144, 20);
 		ConfigTab.add(C40);
 
 		C41 = new JTextField();
+		C41.setBorder(new LineBorder(new Color(138, 43, 226)));
 		C41.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1747,13 +1832,14 @@ public class MyCopyPastePanel extends JFrame {
 		C41.setText(C41_str);
 		C41.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		C41.setColumns(10);
-		C41.setBounds(178, 490, 144, 19);
+		C41.setBounds(179, 490, 144, 19);
 		ConfigTab.add(C41);
 
 		//
 		// Change Button Text
 		//
 		JButton c00repaint = new JButton("update");
+		c00repaint.setBorder(new LineBorder(null, 1, true));
 		c00repaint.setToolTipText("click to update button text");
 		c00repaint.setIconTextGap(1);
 		c00repaint.setFont(new Font("メイリオ", Font.PLAIN, 6));
@@ -1776,6 +1862,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c00repaint);
 
 		JButton c01repaint = new JButton("update");
+		c01repaint.setBorder(new LineBorder(null, 1, true));
 		c01repaint.setToolTipText("click to update button text");
 		c01repaint.setIconTextGap(1);
 		c01repaint.addActionListener(new ActionListener() {
@@ -1797,6 +1884,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c01repaint);
 
 		JButton c02repaint = new JButton("update");
+		c02repaint.setBorder(new LineBorder(null, 1, true));
 		c02repaint.setToolTipText("click to update button text");
 		c02repaint.setIconTextGap(1);
 		c02repaint.addActionListener(new ActionListener() {
@@ -1819,6 +1907,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c02repaint);
 
 		JButton c03repaint = new JButton("update");
+		c03repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c03repaint.setToolTipText("click to update button text");
 		c03repaint.setIconTextGap(1);
 		c03repaint.addActionListener(new ActionListener() {
@@ -1841,6 +1930,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c03repaint);
 
 		JButton c04repaint = new JButton("update");
+		c04repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c04repaint.setToolTipText("click to update button text");
 		c04repaint.setIconTextGap(1);
 		c04repaint.addActionListener(new ActionListener() {
@@ -1863,6 +1953,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c04repaint);
 
 		JButton c05repaint = new JButton("update");
+		c05repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c05repaint.setToolTipText("click to update button text");
 		c05repaint.setIconTextGap(1);
 		c05repaint.addActionListener(new ActionListener() {
@@ -1885,6 +1976,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c05repaint);
 
 		JButton c06repaint = new JButton("update");
+		c06repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c06repaint.setToolTipText("click to update button text");
 		c06repaint.setIconTextGap(1);
 		c06repaint.addActionListener(new ActionListener() {
@@ -1907,6 +1999,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c06repaint);
 
 		JButton c07repaint = new JButton("update");
+		c07repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c07repaint.setToolTipText("click to update button text");
 		c07repaint.setIconTextGap(1);
 		c07repaint.addActionListener(new ActionListener() {
@@ -1929,6 +2022,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c07repaint);
 
 		JButton c08repaint = new JButton("update");
+		c08repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c08repaint.setToolTipText("click to update button text");
 		c08repaint.setIconTextGap(1);
 		c08repaint.addActionListener(new ActionListener() {
@@ -1951,6 +2045,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c08repaint);
 
 		JButton c09repaint = new JButton("update");
+		c09repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c09repaint.setToolTipText("click to update button text");
 		c09repaint.setIconTextGap(1);
 		c09repaint.addActionListener(new ActionListener() {
@@ -1973,6 +2068,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c09repaint);
 
 		JButton c10repaint = new JButton("update");
+		c10repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c10repaint.setToolTipText("click to update button text");
 		c10repaint.setIconTextGap(1);
 		c10repaint.addActionListener(new ActionListener() {
@@ -1995,6 +2091,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c10repaint);
 
 		JButton c11repaint = new JButton("update");
+		c11repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c11repaint.setToolTipText("click to update button text");
 		c11repaint.setIconTextGap(1);
 		c11repaint.addActionListener(new ActionListener() {
@@ -2017,6 +2114,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c11repaint);
 
 		JButton c12repaint = new JButton("update");
+		c12repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c12repaint.setToolTipText("click to update button text");
 		c12repaint.setIconTextGap(1);
 		c12repaint.addActionListener(new ActionListener() {
@@ -2039,6 +2137,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c12repaint);
 
 		JButton c13repaint = new JButton("update");
+		c13repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c13repaint.setToolTipText("click to update button text");
 		c13repaint.setIconTextGap(1);
 		c13repaint.addActionListener(new ActionListener() {
@@ -2061,6 +2160,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c13repaint);
 
 		JButton c14repaint = new JButton("update");
+		c14repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c14repaint.setToolTipText("click to update button text");
 		c14repaint.setIconTextGap(1);
 		c14repaint.addActionListener(new ActionListener() {
@@ -2083,6 +2183,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c14repaint);
 
 		JButton c15repaint = new JButton("update");
+		c15repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c15repaint.setToolTipText("click to update button text");
 		c15repaint.setIconTextGap(1);
 		c15repaint.addActionListener(new ActionListener() {
@@ -2105,6 +2206,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c15repaint);
 
 		JButton c16repaint = new JButton("update");
+		c16repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c16repaint.setToolTipText("click to update button text");
 		c16repaint.setIconTextGap(1);
 		c16repaint.addActionListener(new ActionListener() {
@@ -2127,6 +2229,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c16repaint);
 
 		JButton c17repaint = new JButton("update");
+		c17repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c17repaint.setToolTipText("click to update button text");
 		c17repaint.setIconTextGap(1);
 		c17repaint.addActionListener(new ActionListener() {
@@ -2149,6 +2252,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c17repaint);
 
 		JButton c18repaint = new JButton("update");
+		c18repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c18repaint.setToolTipText("click to update button text");
 		c18repaint.setIconTextGap(1);
 		c18repaint.addActionListener(new ActionListener() {
@@ -2171,6 +2275,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c18repaint);
 
 		JButton c19repaint = new JButton("update");
+		c19repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c19repaint.setToolTipText("click to update button text");
 		c19repaint.setIconTextGap(1);
 		c19repaint.addActionListener(new ActionListener() {
@@ -2193,6 +2298,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c19repaint);
 
 		JButton c20repaint = new JButton("update");
+		c20repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c20repaint.setToolTipText("click to update button text");
 		c20repaint.setIconTextGap(1);
 		c20repaint.addActionListener(new ActionListener() {
@@ -2215,6 +2321,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c20repaint);
 
 		JButton c21repaint = new JButton("update");
+		c21repaint.setBorder(new LineBorder(null, 1, true));
 		c21repaint.setToolTipText("click to update button text");
 		c21repaint.setIconTextGap(1);
 		c21repaint.addActionListener(new ActionListener() {
@@ -2237,6 +2344,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c21repaint);
 
 		JButton c22repaint = new JButton("update");
+		c22repaint.setBorder(new LineBorder(null, 1, true));
 		c22repaint.setToolTipText("click to update button text");
 		c22repaint.setIconTextGap(1);
 		c22repaint.addActionListener(new ActionListener() {
@@ -2259,6 +2367,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c22repaint);
 
 		JButton c23repaint = new JButton("update");
+		c23repaint.setBorder(new LineBorder(null, 1, true));
 		c23repaint.setToolTipText("click to update button text");
 		c23repaint.setIconTextGap(1);
 		c23repaint.addActionListener(new ActionListener() {
@@ -2281,6 +2390,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c23repaint);
 
 		JButton c24repaint = new JButton("update");
+		c24repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c24repaint.setToolTipText("click to update button text");
 		c24repaint.setIconTextGap(1);
 		c24repaint.addActionListener(new ActionListener() {
@@ -2303,6 +2413,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c24repaint);
 
 		JButton c25repaint = new JButton("update");
+		c25repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c25repaint.setToolTipText("click to update button text");
 		c25repaint.setIconTextGap(1);
 		c25repaint.addActionListener(new ActionListener() {
@@ -2325,6 +2436,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c25repaint);
 
 		JButton c26repaint = new JButton("update");
+		c26repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c26repaint.setToolTipText("click to update button text");
 		c26repaint.setIconTextGap(1);
 		c26repaint.addActionListener(new ActionListener() {
@@ -2347,6 +2459,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c26repaint);
 
 		JButton c27repaint = new JButton("update");
+		c27repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c27repaint.setToolTipText("click to update button text");
 		c27repaint.setIconTextGap(1);
 		c27repaint.addActionListener(new ActionListener() {
@@ -2369,6 +2482,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c27repaint);
 
 		JButton c28repaint = new JButton("update");
+		c28repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c28repaint.setToolTipText("click to update button text");
 		c28repaint.setIconTextGap(1);
 		c28repaint.addActionListener(new ActionListener() {
@@ -2391,6 +2505,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c28repaint);
 
 		JButton c29repaint = new JButton("update");
+		c29repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c29repaint.setToolTipText("click to update button text");
 		c29repaint.setIconTextGap(1);
 		c29repaint.addActionListener(new ActionListener() {
@@ -2413,6 +2528,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c29repaint);
 
 		JButton c30repaint = new JButton("update");
+		c30repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c30repaint.setToolTipText("click to update button text");
 		c30repaint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -2435,6 +2551,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c30repaint);
 
 		JButton c31repaint = new JButton("update");
+		c31repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c31repaint.setToolTipText("click to update button text");
 		c31repaint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -2457,6 +2574,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c31repaint);
 
 		JButton c32repaint = new JButton("update");
+		c32repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c32repaint.setToolTipText("click to update button text");
 		c32repaint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -2479,6 +2597,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c32repaint);
 
 		JButton c33repaint = new JButton("update");
+		c33repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c33repaint.setToolTipText("click to update button text");
 		c33repaint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -2501,6 +2620,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c33repaint);
 
 		JButton c34repaint = new JButton("update");
+		c34repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c34repaint.setToolTipText("click to update button text");
 		c34repaint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -2523,6 +2643,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c34repaint);
 
 		JButton c35repaint = new JButton("update");
+		c35repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c35repaint.setToolTipText("click to update button text");
 		c35repaint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -2545,6 +2666,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c35repaint);
 
 		JButton c36repaint = new JButton("update");
+		c36repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c36repaint.setToolTipText("click to update button text");
 		c36repaint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -2567,6 +2689,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c36repaint);
 
 		JButton c37repaint = new JButton("update");
+		c37repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c37repaint.setToolTipText("click to update button text");
 		c37repaint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -2589,6 +2712,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c37repaint);
 
 		JButton c38repaint = new JButton("update");
+		c38repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c38repaint.setToolTipText("click to update button text");
 		c38repaint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -2611,6 +2735,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c38repaint);
 
 		JButton c39repaint = new JButton("update");
+		c39repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c39repaint.setToolTipText("click to update button text");
 		c39repaint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -2633,6 +2758,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c39repaint);
 
 		JButton c40repaint = new JButton("update");
+		c40repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c40repaint.setToolTipText("click to update button text");
 		c40repaint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -2655,6 +2781,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(c40repaint);
 
 		JButton c41repaint = new JButton("update");
+		c41repaint.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		c41repaint.setToolTipText("click to update button text");
 		c41repaint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
