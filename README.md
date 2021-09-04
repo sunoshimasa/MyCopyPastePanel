@@ -1,5 +1,5 @@
 # MyCopyPastePanel
-Java Swing application for Easy WEB Input Operation
+Java Swing WindowBuilder application for Easy WEB Input Operation for doing damn job, or for persons those who can not easyly do that.
 JRE-1.8 required
 start MyCopyPaste.jar
 click MySettings TAB
