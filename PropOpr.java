@@ -7,16 +7,14 @@ import java.nio.file.Paths;
 import java.util.Properties;
 
 public class PropOpr {
-	//static String USER_PROFILE;
-	//static String INIT_FILE_PATH;
-
 	public PropOpr() throws Exception {
 	}
 
 	static {
 		Properties properties = new Properties();
 		try {
-			properties.load(Files.newBufferedReader(Paths.get(MyCopyPastePanel.properties_file), StandardCharsets.UTF_8));
+			properties
+					.load(Files.newBufferedReader(Paths.get(MyCopyPastePanel.properties_file), StandardCharsets.UTF_8));
 		} catch (IOException e) {
 			// failed reading properties file
 			System.out.println(String.format("file not found %s", MyCopyPastePanel.properties_file));

@@ -22,15 +22,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Properties;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
-// flat LAF
-import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import javax.swing.border.LineBorder;
 
 public class MyCopyPastePanel extends JFrame {
@@ -46,7 +44,7 @@ public class MyCopyPastePanel extends JFrame {
 	private static Toolkit kit = Toolkit.getDefaultToolkit();
 	private static Clipboard clipboard = kit.getSystemClipboard();
 	// properties file location, properties file name
-	// file location & file name is %USERPROFILE%\%USERNAME%.properties
+	// file location & file name is %USERPROFILE%\\%USERNAME%.properties
 	protected final static String properties_file = USER_PROFILE + "\\" + USER_ID + ".properties";
 	// create properties instance
 	private static final Properties properties = new Properties();
@@ -233,7 +231,7 @@ public class MyCopyPastePanel extends JFrame {
 	}
 
 	// writeProperties function
-	private static void writeProperties(Properties prop) {
+	private static void updateProperties(Properties prop) {
 		prop.setProperty("C00", B00.getText());
 		prop.setProperty("C01", B01.getText());
 		prop.setProperty("C02", B02.getText());
@@ -292,7 +290,7 @@ public class MyCopyPastePanel extends JFrame {
 					// set frame LAF to Windows
 					for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
 							.getInstalledLookAndFeels()) {
-						if ("FlatArcOrangeIJTheme".equals(info.getName())) {
+						if ("Windows".equals(info.getName())) {
 							javax.swing.UIManager.setLookAndFeel(info.getClassName());
 							break;
 						}
@@ -304,8 +302,10 @@ public class MyCopyPastePanel extends JFrame {
 				}
 				// create app instance
 				try {
-					FlatArcOrangeIJTheme.setup();
+
 					MyCopyPastePanel frame = new MyCopyPastePanel();
+					frame.setIconImage(java.awt.Toolkit.getDefaultToolkit()
+							.getImage(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -323,7 +323,7 @@ public class MyCopyPastePanel extends JFrame {
 			try (FileOutputStream f = new FileOutputStream(properties_file);
 					BufferedOutputStream b = new BufferedOutputStream(f)) {
 				Properties prop = new Properties();
-				writeProperties(prop);
+				updateProperties(prop);
 				prop.store(b, "");
 				b.close();
 				f.close();
@@ -353,7 +353,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -380,11 +380,37 @@ public class MyCopyPastePanel extends JFrame {
 
 		JPanel ButtonTab = new JPanel();
 		ButtonTab.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		tabbedPane.addTab("MyButtons", null, ButtonTab, null);
+		ImageIcon tabicon = new javax.swing.ImageIcon(
+				MyCopyPastePanel.class.getResource("/MyCopyPastePanel/buttons.png"));
+		tabbedPane.addTab("MyButtons", tabicon, ButtonTab, null);
 		tabbedPane.setBackgroundAt(0, new Color(245, 255, 250));
 		tabbedPane.setEnabledAt(0, true);
 		ButtonTab.setLayout(null);
-		
+		B00.setHorizontalTextPosition(SwingConstants.LEFT);
+
+		//
+		//
+		//
+		//
+		B00.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B00.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B00.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B00.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
 		B00.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		B00.setText(C00_str);
 		B00.setBounds(new Rectangle(4, 22, 170, 20));
@@ -396,12 +422,30 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B00.setHorizontalAlignment(SwingConstants.LEADING);
-		B00.setHorizontalTextPosition(SwingConstants.LEADING);
+		B00.setHorizontalAlignment(SwingConstants.LEFT);
 		B00.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B00.setAutoscrolls(true);
 		B00.setBounds(3, 10, 158, 20);
 		ButtonTab.add(B00);
+
+		B01.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B01.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B01.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B01.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
 
 		B01.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		B01.setText(C01_str);
@@ -414,12 +458,31 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B01.setHorizontalAlignment(SwingConstants.LEADING);
-		B01.setHorizontalTextPosition(SwingConstants.LEADING);
+		B01.setHorizontalAlignment(SwingConstants.LEFT);
+		B01.setHorizontalTextPosition(SwingConstants.LEFT);
 		B01.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B01.setAutoscrolls(true);
 		B01.setBounds(3, 34, 158, 20);
 		ButtonTab.add(B01);
+
+		B02.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B02.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B02.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B02.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
 
 		B02.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		B02.setText(C02_str);
@@ -432,12 +495,31 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B02.setHorizontalAlignment(SwingConstants.LEADING);
-		B02.setHorizontalTextPosition(SwingConstants.LEADING);
+		B02.setHorizontalAlignment(SwingConstants.LEFT);
+		B02.setHorizontalTextPosition(SwingConstants.LEFT);
 		B02.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B02.setAutoscrolls(true);
 		B02.setBounds(3, 58, 158, 20);
 		ButtonTab.add(B02);
+
+		B03.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B03.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B03.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B03.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
 
 		B03.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		B03.setText(C03_str);
@@ -450,12 +532,31 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B03.setHorizontalAlignment(SwingConstants.LEADING);
-		B03.setHorizontalTextPosition(SwingConstants.LEADING);
+		B03.setHorizontalAlignment(SwingConstants.LEFT);
+		B03.setHorizontalTextPosition(SwingConstants.LEFT);
 		B03.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B03.setAutoscrolls(true);
 		B03.setBounds(16, 82, 158, 20);
 		ButtonTab.add(B03);
+
+		B04.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B04.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B04.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B04.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
 
 		B04.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		B04.setText(C04_str);
@@ -468,12 +569,31 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B04.setHorizontalAlignment(SwingConstants.LEADING);
-		B04.setHorizontalTextPosition(SwingConstants.LEADING);
+		B04.setHorizontalAlignment(SwingConstants.LEFT);
+		B04.setHorizontalTextPosition(SwingConstants.LEFT);
 		B04.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B04.setAutoscrolls(true);
 		B04.setBounds(16, 106, 158, 20);
 		ButtonTab.add(B04);
+
+		B05.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B05.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B05.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B05.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
 
 		B05.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		B05.setText(C05_str);
@@ -486,12 +606,31 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B05.setHorizontalAlignment(SwingConstants.LEADING);
-		B05.setHorizontalTextPosition(SwingConstants.LEADING);
+		B05.setHorizontalAlignment(SwingConstants.LEFT);
+		B05.setHorizontalTextPosition(SwingConstants.LEFT);
 		B05.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B05.setAutoscrolls(true);
 		B05.setBounds(16, 130, 158, 20);
 		ButtonTab.add(B05);
+
+		B06.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B06.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B06.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B06.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
 
 		B06.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		B06.setText(C06_str);
@@ -504,12 +643,31 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B06.setHorizontalAlignment(SwingConstants.LEADING);
-		B06.setHorizontalTextPosition(SwingConstants.LEADING);
+		B06.setHorizontalAlignment(SwingConstants.LEFT);
+		B06.setHorizontalTextPosition(SwingConstants.LEFT);
 		B06.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B06.setAutoscrolls(true);
 		B06.setBounds(3, 154, 158, 20);
 		ButtonTab.add(B06);
+
+		B07.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B07.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B07.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B07.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
 
 		B07.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		B07.setText(C07_str);
@@ -522,12 +680,31 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B07.setHorizontalAlignment(SwingConstants.LEADING);
-		B07.setHorizontalTextPosition(SwingConstants.LEADING);
+		B07.setHorizontalAlignment(SwingConstants.LEFT);
+		B07.setHorizontalTextPosition(SwingConstants.LEFT);
 		B07.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B07.setAutoscrolls(true);
 		B07.setBounds(3, 178, 158, 20);
 		ButtonTab.add(B07);
+
+		B08.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B08.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B08.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B08.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
 
 		B08.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		B08.setText(C08_str);
@@ -540,12 +717,31 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B08.setHorizontalAlignment(SwingConstants.LEADING);
-		B08.setHorizontalTextPosition(SwingConstants.LEADING);
+		B08.setHorizontalAlignment(SwingConstants.LEFT);
+		B08.setHorizontalTextPosition(SwingConstants.LEFT);
 		B08.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B08.setAutoscrolls(true);
 		B08.setBounds(3, 202, 158, 21);
 		ButtonTab.add(B08);
+
+		B09.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B09.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B09.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B09.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
 
 		B09.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		B09.setText(C09_str);
@@ -558,12 +754,31 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B09.setHorizontalAlignment(SwingConstants.LEADING);
-		B09.setHorizontalTextPosition(SwingConstants.LEADING);
+		B09.setHorizontalAlignment(SwingConstants.LEFT);
+		B09.setHorizontalTextPosition(SwingConstants.LEFT);
 		B09.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B09.setAutoscrolls(true);
 		B09.setBounds(16, 226, 158, 21);
 		ButtonTab.add(B09);
+
+		B10.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B10.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B10.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B10.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
 
 		B10.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		B10.setText(C10_str);
@@ -576,12 +791,31 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B10.setHorizontalAlignment(SwingConstants.LEADING);
-		B10.setHorizontalTextPosition(SwingConstants.LEADING);
+		B10.setHorizontalAlignment(SwingConstants.LEFT);
+		B10.setHorizontalTextPosition(SwingConstants.LEFT);
 		B10.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B10.setAutoscrolls(true);
 		B10.setBounds(16, 250, 158, 21);
 		ButtonTab.add(B10);
+
+		B11.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B11.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B11.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B11.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
 
 		B11.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		B11.setText(C11_str);
@@ -594,14 +828,33 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B11.setHorizontalAlignment(SwingConstants.LEADING);
-		B11.setHorizontalTextPosition(SwingConstants.LEADING);
+		B11.setHorizontalAlignment(SwingConstants.LEFT);
+		B11.setHorizontalTextPosition(SwingConstants.LEFT);
 		B11.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B11.setAutoscrolls(true);
 		B11.setBounds(16, 274, 158, 21);
 		ButtonTab.add(B11);
 
-		B12.setBorder(new LineBorder(new Color(220, 20, 60)));
+		B12.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B12.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B12.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B12.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B12.setBorder(new LineBorder(new Color(220, 20, 60), 1, true));
 		B12.setText(C12_str);
 		B12.setBounds(new Rectangle(4, 22, 170, 20));
 		B12.setToolTipText(C12_str);
@@ -612,14 +865,33 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B12.setHorizontalAlignment(SwingConstants.LEADING);
-		B12.setHorizontalTextPosition(SwingConstants.LEADING);
+		B12.setHorizontalAlignment(SwingConstants.LEFT);
+		B12.setHorizontalTextPosition(SwingConstants.LEFT);
 		B12.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B12.setAutoscrolls(true);
 		B12.setBounds(3, 298, 158, 21);
 		ButtonTab.add(B12);
 
-		B13.setBorder(new LineBorder(new Color(220, 20, 60)));
+		B13.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B13.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B13.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B13.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B13.setBorder(new LineBorder(new Color(220, 20, 60), 1, true));
 		B13.setText(C13_str);
 		B13.setBounds(new Rectangle(4, 22, 170, 20));
 		B13.setToolTipText(C13_str);
@@ -630,14 +902,33 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B13.setHorizontalAlignment(SwingConstants.LEADING);
-		B13.setHorizontalTextPosition(SwingConstants.LEADING);
+		B13.setHorizontalAlignment(SwingConstants.LEFT);
+		B13.setHorizontalTextPosition(SwingConstants.LEFT);
 		B13.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B13.setAutoscrolls(true);
 		B13.setBounds(3, 322, 158, 21);
 		ButtonTab.add(B13);
 
-		B14.setBorder(new LineBorder(new Color(220, 20, 60)));
+		B14.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B14.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B14.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B14.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B14.setBorder(new LineBorder(new Color(220, 20, 60), 1, true));
 		B14.setText(C14_str);
 		B14.setBounds(new Rectangle(4, 22, 170, 20));
 		B14.setToolTipText(C14_str);
@@ -648,14 +939,33 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B14.setHorizontalAlignment(SwingConstants.LEADING);
-		B14.setHorizontalTextPosition(SwingConstants.LEADING);
+		B14.setHorizontalAlignment(SwingConstants.LEFT);
+		B14.setHorizontalTextPosition(SwingConstants.LEFT);
 		B14.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B14.setAutoscrolls(true);
 		B14.setBounds(3, 346, 158, 21);
 		ButtonTab.add(B14);
-		
-		B15.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
+
+		B15.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B15.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B15.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B15.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B15.setBorder(new LineBorder(new Color(176, 224, 230), 1, true));
 		B15.setText(C15_str);
 		B15.setBounds(new Rectangle(4, 22, 170, 20));
 		B15.addActionListener(new ActionListener() {
@@ -666,13 +976,32 @@ public class MyCopyPastePanel extends JFrame {
 			}
 		});
 		B15.setToolTipText(C15_str);
-		B15.setHorizontalTextPosition(SwingConstants.LEADING);
-		B15.setHorizontalAlignment(SwingConstants.LEADING);
+		B15.setHorizontalTextPosition(SwingConstants.LEFT);
+		B15.setHorizontalAlignment(SwingConstants.LEFT);
 		B15.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B15.setBounds(16, 370, 158, 21);
 		ButtonTab.add(B15);
-		
-		B16.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
+
+		B16.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B16.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B16.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B16.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B16.setBorder(new LineBorder(new Color(176, 224, 230), 1, true));
 		B16.setText(C16_str);
 		B16.setBounds(new Rectangle(4, 22, 170, 20));
 		B16.addActionListener(new ActionListener() {
@@ -683,13 +1012,32 @@ public class MyCopyPastePanel extends JFrame {
 			}
 		});
 		B16.setToolTipText(C16_str);
-		B16.setHorizontalTextPosition(SwingConstants.LEADING);
-		B16.setHorizontalAlignment(SwingConstants.LEADING);
+		B16.setHorizontalTextPosition(SwingConstants.LEFT);
+		B16.setHorizontalAlignment(SwingConstants.LEFT);
 		B16.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B16.setBounds(16, 394, 158, 21);
 		ButtonTab.add(B16);
-		
-		B17.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
+
+		B17.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B17.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B17.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B17.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B17.setBorder(new LineBorder(new Color(176, 224, 230), 1, true));
 		B17.setText(C17_str);
 		B17.setBounds(new Rectangle(4, 22, 170, 20));
 		B17.addActionListener(new ActionListener() {
@@ -700,13 +1048,32 @@ public class MyCopyPastePanel extends JFrame {
 			}
 		});
 		B17.setToolTipText(C17_str);
-		B17.setHorizontalTextPosition(SwingConstants.LEADING);
-		B17.setHorizontalAlignment(SwingConstants.LEADING);
+		B17.setHorizontalTextPosition(SwingConstants.LEFT);
+		B17.setHorizontalAlignment(SwingConstants.LEFT);
 		B17.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B17.setBounds(16, 418, 158, 21);
 		ButtonTab.add(B17);
-		
-		B18.setBorder(new LineBorder(new Color(138, 43, 226)));
+
+		B18.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B18.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B18.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B18.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B18.setBorder(new LineBorder(new Color(238, 130, 238), 1, true));
 		B18.setText(C18_str);
 		B18.setBounds(new Rectangle(4, 22, 170, 20));
 		B18.addActionListener(new ActionListener() {
@@ -717,13 +1084,32 @@ public class MyCopyPastePanel extends JFrame {
 			}
 		});
 		B18.setToolTipText(C18_str);
-		B18.setHorizontalTextPosition(SwingConstants.LEADING);
-		B18.setHorizontalAlignment(SwingConstants.LEADING);
+		B18.setHorizontalTextPosition(SwingConstants.LEFT);
+		B18.setHorizontalAlignment(SwingConstants.LEFT);
 		B18.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B18.setBounds(3, 442, 158, 21);
 		ButtonTab.add(B18);
-		
-		B19.setBorder(new LineBorder(new Color(138, 43, 226)));
+
+		B19.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B19.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B19.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B19.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B19.setBorder(new LineBorder(new Color(238, 130, 238), 1, true));
 		B19.setText(C19_str);
 		B19.setBounds(new Rectangle(4, 22, 170, 20));
 		B19.addActionListener(new ActionListener() {
@@ -734,13 +1120,32 @@ public class MyCopyPastePanel extends JFrame {
 			}
 		});
 		B19.setToolTipText(C19_str);
-		B19.setHorizontalTextPosition(SwingConstants.LEADING);
-		B19.setHorizontalAlignment(SwingConstants.LEADING);
+		B19.setHorizontalTextPosition(SwingConstants.LEFT);
+		B19.setHorizontalAlignment(SwingConstants.LEFT);
 		B19.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B19.setBounds(3, 466, 158, 21);
 		ButtonTab.add(B19);
-		
-		B20.setBorder(new LineBorder(new Color(138, 43, 226)));
+
+		B20.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B20.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B20.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B20.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B20.setBorder(new LineBorder(new Color(238, 130, 238), 1, true));
 		B20.setText(C20_str);
 		B20.setBounds(new Rectangle(4, 22, 170, 20));
 		B20.addActionListener(new ActionListener() {
@@ -751,12 +1156,31 @@ public class MyCopyPastePanel extends JFrame {
 			}
 		});
 		B20.setToolTipText(C20_str);
-		B20.setHorizontalTextPosition(SwingConstants.LEADING);
-		B20.setHorizontalAlignment(SwingConstants.LEADING);
+		B20.setHorizontalTextPosition(SwingConstants.LEFT);
+		B20.setHorizontalAlignment(SwingConstants.LEFT);
 		B20.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B20.setBounds(3, 490, 158, 21);
 		ButtonTab.add(B20);
-		
+
+		B21.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B21.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B21.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B21.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
 		B21.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		B21.setText(C21_str);
 		B21.setBounds(new Rectangle(4, 22, 170, 20));
@@ -768,12 +1192,31 @@ public class MyCopyPastePanel extends JFrame {
 			}
 		});
 		B21.setToolTipText(C21_str);
-		B21.setHorizontalTextPosition(SwingConstants.LEADING);
-		B21.setHorizontalAlignment(SwingConstants.LEADING);
+		B21.setHorizontalTextPosition(SwingConstants.LEFT);
+		B21.setHorizontalAlignment(SwingConstants.LEFT);
 		B21.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B21.setBounds(184, 10, 170, 20);
 		ButtonTab.add(B21);
-		
+
+		B22.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B22.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B22.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B22.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
 		B22.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		B22.setText(C22_str);
 		B22.setBounds(new Rectangle(4, 22, 170, 20));
@@ -785,12 +1228,31 @@ public class MyCopyPastePanel extends JFrame {
 			}
 		});
 		B22.setToolTipText(C22_str);
-		B22.setHorizontalTextPosition(SwingConstants.LEADING);
-		B22.setHorizontalAlignment(SwingConstants.LEADING);
+		B22.setHorizontalTextPosition(SwingConstants.LEFT);
+		B22.setHorizontalAlignment(SwingConstants.LEFT);
 		B22.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B22.setBounds(184, 34, 170, 20);
 		ButtonTab.add(B22);
-		
+
+		B23.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B23.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B23.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B23.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
 		B23.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		B23.setText(C23_str);
 		B23.setBounds(new Rectangle(4, 22, 170, 20));
@@ -802,12 +1264,31 @@ public class MyCopyPastePanel extends JFrame {
 			}
 		});
 		B23.setToolTipText(C23_str);
-		B23.setHorizontalTextPosition(SwingConstants.LEADING);
-		B23.setHorizontalAlignment(SwingConstants.LEADING);
+		B23.setHorizontalTextPosition(SwingConstants.LEFT);
+		B23.setHorizontalAlignment(SwingConstants.LEFT);
 		B23.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B23.setBounds(184, 58, 170, 20);
 		ButtonTab.add(B23);
-		
+
+		B24.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B24.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B24.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B24.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
 		B24.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		B24.setText(C24_str);
 		B24.setBounds(new Rectangle(4, 22, 170, 20));
@@ -819,12 +1300,31 @@ public class MyCopyPastePanel extends JFrame {
 			}
 		});
 		B24.setToolTipText(C24_str);
-		B24.setHorizontalTextPosition(SwingConstants.LEADING);
-		B24.setHorizontalAlignment(SwingConstants.LEADING);
+		B24.setHorizontalTextPosition(SwingConstants.LEFT);
+		B24.setHorizontalAlignment(SwingConstants.LEFT);
 		B24.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B24.setBounds(196, 82, 158, 20);
 		ButtonTab.add(B24);
-		
+
+		B25.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B25.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B25.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B25.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
 		B25.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		B25.setText(C25_str);
 		B25.setBounds(new Rectangle(4, 22, 170, 20));
@@ -836,12 +1336,31 @@ public class MyCopyPastePanel extends JFrame {
 			}
 		});
 		B25.setToolTipText(C25_str);
-		B25.setHorizontalTextPosition(SwingConstants.LEADING);
-		B25.setHorizontalAlignment(SwingConstants.LEADING);
+		B25.setHorizontalTextPosition(SwingConstants.LEFT);
+		B25.setHorizontalAlignment(SwingConstants.LEFT);
 		B25.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B25.setBounds(196, 106, 158, 20);
 		ButtonTab.add(B25);
-		
+
+		B26.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B26.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B26.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B26.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
 		B26.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		B26.setText(C26_str);
 		B26.setBounds(new Rectangle(4, 22, 170, 20));
@@ -853,12 +1372,31 @@ public class MyCopyPastePanel extends JFrame {
 			}
 		});
 		B26.setToolTipText(C26_str);
-		B26.setHorizontalTextPosition(SwingConstants.LEADING);
-		B26.setHorizontalAlignment(SwingConstants.LEADING);
+		B26.setHorizontalTextPosition(SwingConstants.LEFT);
+		B26.setHorizontalAlignment(SwingConstants.LEFT);
 		B26.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B26.setBounds(196, 130, 158, 20);
 		ButtonTab.add(B26);
-		
+
+		B27.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B27.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B27.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B27.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
 		B27.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		B27.setText(C27_str);
 		B27.setBounds(new Rectangle(4, 22, 170, 20));
@@ -870,12 +1408,31 @@ public class MyCopyPastePanel extends JFrame {
 			}
 		});
 		B27.setToolTipText(C27_str);
-		B27.setHorizontalTextPosition(SwingConstants.LEADING);
-		B27.setHorizontalAlignment(SwingConstants.LEADING);
+		B27.setHorizontalTextPosition(SwingConstants.LEFT);
+		B27.setHorizontalAlignment(SwingConstants.LEFT);
 		B27.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B27.setBounds(184, 154, 170, 20);
 		ButtonTab.add(B27);
-		
+
+		B28.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B28.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B28.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B28.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
 		B28.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		B28.setText(C28_str);
 		B28.setBounds(new Rectangle(4, 22, 170, 20));
@@ -887,12 +1444,31 @@ public class MyCopyPastePanel extends JFrame {
 			}
 		});
 		B28.setToolTipText(C28_str);
-		B28.setHorizontalTextPosition(SwingConstants.LEADING);
-		B28.setHorizontalAlignment(SwingConstants.LEADING);
+		B28.setHorizontalTextPosition(SwingConstants.LEFT);
+		B28.setHorizontalAlignment(SwingConstants.LEFT);
 		B28.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B28.setBounds(184, 178, 170, 20);
 		ButtonTab.add(B28);
-		
+
+		B29.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B29.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B29.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B29.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
 		B29.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		B29.setText(C29_str);
 		B29.setBounds(new Rectangle(4, 22, 170, 20));
@@ -904,12 +1480,31 @@ public class MyCopyPastePanel extends JFrame {
 			}
 		});
 		B29.setToolTipText(C29_str);
-		B29.setHorizontalTextPosition(SwingConstants.LEADING);
-		B29.setHorizontalAlignment(SwingConstants.LEADING);
+		B29.setHorizontalTextPosition(SwingConstants.LEFT);
+		B29.setHorizontalAlignment(SwingConstants.LEFT);
 		B29.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B29.setBounds(184, 202, 170, 20);
 		ButtonTab.add(B29);
-		
+
+		B30.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B30.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B30.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B30.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
 		B30.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		B30.setText(C30_str);
 		B30.setToolTipText(C30_str);
@@ -920,13 +1515,32 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B30.setHorizontalTextPosition(SwingConstants.LEADING);
-		B30.setHorizontalAlignment(SwingConstants.LEADING);
+		B30.setHorizontalTextPosition(SwingConstants.LEFT);
+		B30.setHorizontalAlignment(SwingConstants.LEFT);
 		B30.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B30.setBounds(new Rectangle(4, 22, 170, 20));
 		B30.setBounds(196, 226, 158, 20);
 		ButtonTab.add(B30);
-		
+
+		B31.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B31.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B31.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B31.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
 		B31.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		B31.setText(C31_str);
 		B31.setToolTipText(C31_str);
@@ -937,13 +1551,32 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B31.setHorizontalTextPosition(SwingConstants.LEADING);
-		B31.setHorizontalAlignment(SwingConstants.LEADING);
+		B31.setHorizontalTextPosition(SwingConstants.LEFT);
+		B31.setHorizontalAlignment(SwingConstants.LEFT);
 		B31.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B31.setBounds(new Rectangle(4, 22, 170, 20));
 		B31.setBounds(196, 250, 158, 20);
 		ButtonTab.add(B31);
-		
+
+		B32.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B32.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B32.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B32.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
 		B32.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		B32.setText(C32_str);
 		B32.setToolTipText(C32_str);
@@ -954,14 +1587,33 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B32.setHorizontalTextPosition(SwingConstants.LEADING);
-		B32.setHorizontalAlignment(SwingConstants.LEADING);
+		B32.setHorizontalTextPosition(SwingConstants.LEFT);
+		B32.setHorizontalAlignment(SwingConstants.LEFT);
 		B32.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B32.setBounds(new Rectangle(4, 22, 170, 20));
 		B32.setBounds(196, 274, 158, 20);
 		ButtonTab.add(B32);
-		
-		B33.setBorder(new LineBorder(new Color(220, 20, 60)));
+
+		B33.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B33.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B33.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B33.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B33.setBorder(new LineBorder(new Color(220, 20, 60), 1, true));
 		B33.setText(C33_str);
 		B33.setToolTipText(C33_str);
 		B33.addActionListener(new ActionListener() {
@@ -971,14 +1623,33 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B33.setHorizontalTextPosition(SwingConstants.LEADING);
-		B33.setHorizontalAlignment(SwingConstants.LEADING);
+		B33.setHorizontalTextPosition(SwingConstants.LEFT);
+		B33.setHorizontalAlignment(SwingConstants.LEFT);
 		B33.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B33.setBounds(new Rectangle(4, 22, 170, 20));
 		B33.setBounds(184, 298, 170, 20);
 		ButtonTab.add(B33);
-		
-		B34.setBorder(new LineBorder(new Color(220, 20, 60)));
+
+		B34.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B34.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B34.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B34.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B34.setBorder(new LineBorder(new Color(220, 20, 60), 1, true));
 		B34.setText(C34_str);
 		B34.setToolTipText(C34_str);
 		B34.addActionListener(new ActionListener() {
@@ -988,14 +1659,33 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B34.setHorizontalTextPosition(SwingConstants.LEADING);
-		B34.setHorizontalAlignment(SwingConstants.LEADING);
+		B34.setHorizontalTextPosition(SwingConstants.LEFT);
+		B34.setHorizontalAlignment(SwingConstants.LEFT);
 		B34.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B34.setBounds(new Rectangle(4, 22, 170, 20));
 		B34.setBounds(184, 322, 170, 20);
 		ButtonTab.add(B34);
-		
-		B35.setBorder(new LineBorder(new Color(220, 20, 60)));
+
+		B35.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B35.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B35.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B35.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B35.setBorder(new LineBorder(new Color(220, 20, 60), 1, true));
 		B35.setText(C35_str);
 		B35.setToolTipText(C35_str);
 		B35.addActionListener(new ActionListener() {
@@ -1005,14 +1695,33 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B35.setHorizontalTextPosition(SwingConstants.LEADING);
-		B35.setHorizontalAlignment(SwingConstants.LEADING);
+		B35.setHorizontalTextPosition(SwingConstants.LEFT);
+		B35.setHorizontalAlignment(SwingConstants.LEFT);
 		B35.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B35.setBounds(new Rectangle(4, 22, 170, 20));
 		B35.setBounds(184, 346, 170, 20);
 		ButtonTab.add(B35);
-		
-		B36.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
+
+		B36.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B36.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B36.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B36.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B36.setBorder(new LineBorder(new Color(176, 224, 230), 1, true));
 		B36.setText(C36_str);
 		B36.setToolTipText(C36_str);
 		B36.addActionListener(new ActionListener() {
@@ -1022,14 +1731,33 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B36.setHorizontalTextPosition(SwingConstants.LEADING);
-		B36.setHorizontalAlignment(SwingConstants.LEADING);
+		B36.setHorizontalTextPosition(SwingConstants.LEFT);
+		B36.setHorizontalAlignment(SwingConstants.LEFT);
 		B36.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B36.setBounds(new Rectangle(4, 22, 170, 20));
 		B36.setBounds(198, 370, 158, 20);
 		ButtonTab.add(B36);
-		
-		B37.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
+
+		B37.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B37.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B37.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B37.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B37.setBorder(new LineBorder(new Color(176, 224, 230), 1, true));
 		B37.setText(C37_str);
 		B37.setToolTipText(C37_str);
 		B37.addActionListener(new ActionListener() {
@@ -1039,14 +1767,33 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B37.setHorizontalTextPosition(SwingConstants.LEADING);
-		B37.setHorizontalAlignment(SwingConstants.LEADING);
+		B37.setHorizontalTextPosition(SwingConstants.LEFT);
+		B37.setHorizontalAlignment(SwingConstants.LEFT);
 		B37.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B37.setBounds(new Rectangle(4, 22, 170, 20));
 		B37.setBounds(198, 394, 158, 20);
 		ButtonTab.add(B37);
-		
-		B38.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
+
+		B38.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B38.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B38.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B38.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B38.setBorder(new LineBorder(new Color(176, 224, 230), 1, true));
 		B38.setText(C38_str);
 		B38.setToolTipText(C38_str);
 		B38.addActionListener(new ActionListener() {
@@ -1056,14 +1803,33 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B38.setHorizontalTextPosition(SwingConstants.LEADING);
-		B38.setHorizontalAlignment(SwingConstants.LEADING);
+		B38.setHorizontalTextPosition(SwingConstants.LEFT);
+		B38.setHorizontalAlignment(SwingConstants.LEFT);
 		B38.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B38.setBounds(new Rectangle(4, 22, 170, 20));
 		B38.setBounds(198, 418, 158, 20);
 		ButtonTab.add(B38);
-		
-		B39.setBorder(new LineBorder(new Color(138, 43, 226)));
+
+		B39.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B39.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B39.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B39.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B39.setBorder(new LineBorder(new Color(238, 130, 238), 1, true));
 		B39.setText(C39_str);
 		B39.setToolTipText(C39_str);
 		B39.addActionListener(new ActionListener() {
@@ -1073,13 +1839,32 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B39.setHorizontalTextPosition(SwingConstants.LEADING);
-		B39.setHorizontalAlignment(SwingConstants.LEADING);
+		B39.setHorizontalTextPosition(SwingConstants.LEFT);
+		B39.setHorizontalAlignment(SwingConstants.LEFT);
 		B39.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B39.setBounds(new Rectangle(4, 22, 170, 20));
 		B39.setBounds(186, 442, 170, 20);
 		ButtonTab.add(B39);
-		B40.setBorder(new LineBorder(new Color(138, 43, 226)));
+		B40.setBorder(new LineBorder(new Color(238, 130, 238), 1, true));
+
+		B40.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B40.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B40.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B40.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
 
 		B40.setText(C40_str);
 		B40.setToolTipText(C40_str);
@@ -1090,14 +1875,33 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B40.setHorizontalTextPosition(SwingConstants.LEADING);
-		B40.setHorizontalAlignment(SwingConstants.LEADING);
+		B40.setHorizontalTextPosition(SwingConstants.LEFT);
+		B40.setHorizontalAlignment(SwingConstants.LEFT);
 		B40.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B40.setBounds(new Rectangle(4, 22, 170, 20));
 		B40.setBounds(186, 466, 170, 20);
 		ButtonTab.add(B40);
-		
-		B41.setBorder(new LineBorder(new Color(138, 43, 226)));
+
+		B41.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				B41.setIcon(
+						new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("/MyCopyPastePanel/finger.png")));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				B41.setIcon(new javax.swing.ImageIcon(MyCopyPastePanel.class.getResource("")));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				B41.setIcon(new javax.swing.ImageIcon(
+						MyCopyPastePanel.class.getResource("/MyCopyPastePanel/thumbsup.png")));
+			}
+		});
+
+		B41.setBorder(new LineBorder(new Color(238, 130, 238), 1, true));
 		B41.setText(C41_str);
 		B41.setToolTipText(C41_str);
 		B41.addActionListener(new ActionListener() {
@@ -1107,8 +1911,8 @@ public class MyCopyPastePanel extends JFrame {
 				clipboard.setContents(selection, null);
 			}
 		});
-		B41.setHorizontalTextPosition(SwingConstants.LEADING);
-		B41.setHorizontalAlignment(SwingConstants.LEADING);
+		B41.setHorizontalTextPosition(SwingConstants.LEFT);
+		B41.setHorizontalAlignment(SwingConstants.LEFT);
 		B41.setFont(new Font("メイリオ", Font.PLAIN, 11));
 		B41.setBounds(new Rectangle(4, 22, 170, 20));
 		B41.setBounds(186, 490, 170, 20);
@@ -1116,13 +1920,16 @@ public class MyCopyPastePanel extends JFrame {
 
 		JPanel ConfigTab = new JPanel();
 		ConfigTab.setFont(new Font("メイリオ", Font.PLAIN, 11));
-		tabbedPane.addTab("MySettings", null, ConfigTab, null);
+		ImageIcon tabicon2 = new javax.swing.ImageIcon(
+				MyCopyPastePanel.class.getResource("/MyCopyPastePanel/config.png"));
+		tabbedPane.addTab("MySettings", tabicon2, ConfigTab, null);
 		tabbedPane.setBackgroundAt(1, new Color(255, 245, 238));
 		tabbedPane.setEnabledAt(1, true);
 		ConfigTab.setLayout(null);
 
 		C00 = new JTextField();
-		C00.setBorder(new LineBorder(new Color(255, 215, 0)));
+		C00.setHorizontalAlignment(SwingConstants.LEFT);
+		C00.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		C00.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1139,7 +1946,8 @@ public class MyCopyPastePanel extends JFrame {
 		C00.setColumns(10);
 
 		C01 = new JTextField();
-		C01.setBorder(new LineBorder(new Color(255, 215, 0)));
+		C01.setHorizontalAlignment(SwingConstants.LEFT);
+		C01.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		C01.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1156,7 +1964,8 @@ public class MyCopyPastePanel extends JFrame {
 		C01.setColumns(10);
 
 		C02 = new JTextField();
-		C02.setBorder(new LineBorder(new Color(255, 215, 0)));
+		C02.setHorizontalAlignment(SwingConstants.LEFT);
+		C02.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		C02.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1173,6 +1982,7 @@ public class MyCopyPastePanel extends JFrame {
 		C02.setColumns(10);
 
 		C03 = new JTextField();
+		C03.setHorizontalAlignment(SwingConstants.LEFT);
 		C03.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		C03.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1190,6 +2000,7 @@ public class MyCopyPastePanel extends JFrame {
 		C03.setColumns(10);
 
 		C04 = new JTextField();
+		C04.setHorizontalAlignment(SwingConstants.LEFT);
 		C04.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		C04.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1207,6 +2018,7 @@ public class MyCopyPastePanel extends JFrame {
 		C04.setColumns(10);
 
 		C05 = new JTextField();
+		C05.setHorizontalAlignment(SwingConstants.LEFT);
 		C05.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		C05.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1224,6 +2036,7 @@ public class MyCopyPastePanel extends JFrame {
 		C05.setColumns(10);
 
 		C06 = new JTextField();
+		C06.setHorizontalAlignment(SwingConstants.LEFT);
 		C06.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		C06.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1241,6 +2054,7 @@ public class MyCopyPastePanel extends JFrame {
 		C06.setColumns(10);
 
 		C07 = new JTextField();
+		C07.setHorizontalAlignment(SwingConstants.LEFT);
 		C07.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		C07.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1258,6 +2072,7 @@ public class MyCopyPastePanel extends JFrame {
 		C07.setColumns(10);
 
 		C08 = new JTextField();
+		C08.setHorizontalAlignment(SwingConstants.LEFT);
 		C08.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		C08.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1275,6 +2090,7 @@ public class MyCopyPastePanel extends JFrame {
 		C08.setColumns(10);
 
 		C09 = new JTextField();
+		C09.setHorizontalAlignment(SwingConstants.LEFT);
 		C09.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		C09.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1292,6 +2108,7 @@ public class MyCopyPastePanel extends JFrame {
 		C09.setColumns(10);
 
 		C10 = new JTextField();
+		C10.setHorizontalAlignment(SwingConstants.LEFT);
 		C10.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		C10.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1309,6 +2126,7 @@ public class MyCopyPastePanel extends JFrame {
 		C10.setColumns(10);
 
 		C11 = new JTextField();
+		C11.setHorizontalAlignment(SwingConstants.LEFT);
 		C11.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		C11.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1326,6 +2144,7 @@ public class MyCopyPastePanel extends JFrame {
 		C11.setColumns(10);
 
 		C12 = new JTextField();
+		C12.setHorizontalAlignment(SwingConstants.LEFT);
 		C12.setBorder(new LineBorder(new Color(220, 20, 60)));
 		C12.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1343,6 +2162,7 @@ public class MyCopyPastePanel extends JFrame {
 		C12.setColumns(10);
 
 		C13 = new JTextField();
+		C13.setHorizontalAlignment(SwingConstants.LEFT);
 		C13.setBorder(new LineBorder(new Color(220, 20, 60)));
 		C13.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1360,6 +2180,7 @@ public class MyCopyPastePanel extends JFrame {
 		C13.setColumns(10);
 
 		C14 = new JTextField();
+		C14.setHorizontalAlignment(SwingConstants.LEFT);
 		C14.setBorder(new LineBorder(new Color(220, 20, 60)));
 		C14.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1377,6 +2198,7 @@ public class MyCopyPastePanel extends JFrame {
 		C14.setColumns(10);
 
 		C15 = new JTextField();
+		C15.setHorizontalAlignment(SwingConstants.LEFT);
 		C15.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		C15.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1394,6 +2216,7 @@ public class MyCopyPastePanel extends JFrame {
 		C15.setColumns(10);
 
 		C16 = new JTextField();
+		C16.setHorizontalAlignment(SwingConstants.LEFT);
 		C16.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		C16.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1411,6 +2234,7 @@ public class MyCopyPastePanel extends JFrame {
 		C16.setColumns(10);
 
 		C17 = new JTextField();
+		C17.setHorizontalAlignment(SwingConstants.LEFT);
 		C17.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		C17.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1428,6 +2252,7 @@ public class MyCopyPastePanel extends JFrame {
 		C17.setColumns(10);
 
 		C18 = new JTextField();
+		C18.setHorizontalAlignment(SwingConstants.LEFT);
 		C18.setBorder(new LineBorder(new Color(138, 43, 226)));
 		C18.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1445,6 +2270,7 @@ public class MyCopyPastePanel extends JFrame {
 		C18.setColumns(10);
 
 		C19 = new JTextField();
+		C19.setHorizontalAlignment(SwingConstants.LEFT);
 		C19.setBorder(new LineBorder(new Color(138, 43, 226)));
 		C19.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1462,6 +2288,7 @@ public class MyCopyPastePanel extends JFrame {
 		C19.setColumns(10);
 
 		C20 = new JTextField();
+		C20.setHorizontalAlignment(SwingConstants.LEFT);
 		C20.setBorder(new LineBorder(new Color(138, 43, 226)));
 		C20.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1479,7 +2306,8 @@ public class MyCopyPastePanel extends JFrame {
 		C20.setColumns(10);
 
 		C21 = new JTextField();
-		C21.setBorder(new LineBorder(new Color(255, 215, 0)));
+		C21.setHorizontalAlignment(SwingConstants.LEFT);
+		C21.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		C21.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1496,7 +2324,8 @@ public class MyCopyPastePanel extends JFrame {
 		C21.setColumns(10);
 
 		C22 = new JTextField();
-		C22.setBorder(new LineBorder(new Color(255, 215, 0)));
+		C22.setHorizontalAlignment(SwingConstants.LEFT);
+		C22.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		C22.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1513,7 +2342,8 @@ public class MyCopyPastePanel extends JFrame {
 		C22.setColumns(10);
 
 		C23 = new JTextField();
-		C23.setBorder(new LineBorder(new Color(255, 215, 0)));
+		C23.setHorizontalAlignment(SwingConstants.LEFT);
+		C23.setBorder(new LineBorder(new Color(255, 215, 0), 1, true));
 		C23.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1530,6 +2360,7 @@ public class MyCopyPastePanel extends JFrame {
 		C23.setColumns(10);
 
 		C24 = new JTextField();
+		C24.setHorizontalAlignment(SwingConstants.LEFT);
 		C24.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		C24.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1547,6 +2378,7 @@ public class MyCopyPastePanel extends JFrame {
 		C24.setColumns(10);
 
 		C25 = new JTextField();
+		C25.setHorizontalAlignment(SwingConstants.LEFT);
 		C25.setBorder(new LineBorder(new Color(34, 139, 34), 1, true));
 		C25.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1564,6 +2396,7 @@ public class MyCopyPastePanel extends JFrame {
 		C25.setColumns(10);
 
 		C26 = new JTextField();
+		C26.setHorizontalAlignment(SwingConstants.LEFT);
 		C26.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		C26.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1581,6 +2414,7 @@ public class MyCopyPastePanel extends JFrame {
 		C26.setColumns(10);
 
 		C27 = new JTextField();
+		C27.setHorizontalAlignment(SwingConstants.LEFT);
 		C27.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		C27.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1598,6 +2432,7 @@ public class MyCopyPastePanel extends JFrame {
 		C27.setColumns(10);
 
 		C28 = new JTextField();
+		C28.setHorizontalAlignment(SwingConstants.LEFT);
 		C28.setBorder(new LineBorder(new Color(128, 0, 0), 1, true));
 		C28.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1615,6 +2450,7 @@ public class MyCopyPastePanel extends JFrame {
 		C28.setColumns(10);
 
 		C29 = new JTextField();
+		C29.setHorizontalAlignment(SwingConstants.LEFT);
 		C29.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		C29.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1632,6 +2468,7 @@ public class MyCopyPastePanel extends JFrame {
 		C29.setColumns(10);
 
 		C30 = new JTextField();
+		C30.setHorizontalAlignment(SwingConstants.LEFT);
 		C30.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		C30.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1649,6 +2486,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(C30);
 
 		C31 = new JTextField();
+		C31.setHorizontalAlignment(SwingConstants.LEFT);
 		C31.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		C31.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1666,6 +2504,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(C31);
 
 		C32 = new JTextField();
+		C32.setHorizontalAlignment(SwingConstants.LEFT);
 		C32.setBorder(new LineBorder(new Color(144, 238, 144), 1, true));
 		C32.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1683,6 +2522,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(C32);
 
 		C33 = new JTextField();
+		C33.setHorizontalAlignment(SwingConstants.LEFT);
 		C33.setBorder(new LineBorder(new Color(220, 20, 60)));
 		C33.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1700,6 +2540,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(C33);
 
 		C34 = new JTextField();
+		C34.setHorizontalAlignment(SwingConstants.LEFT);
 		C34.setBorder(new LineBorder(new Color(220, 20, 60)));
 		C34.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1717,6 +2558,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(C34);
 
 		C35 = new JTextField();
+		C35.setHorizontalAlignment(SwingConstants.LEFT);
 		C35.setBorder(new LineBorder(new Color(220, 20, 60)));
 		C35.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1734,6 +2576,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(C35);
 
 		C36 = new JTextField();
+		C36.setHorizontalAlignment(SwingConstants.LEFT);
 		C36.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		C36.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1751,6 +2594,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(C36);
 
 		C37 = new JTextField();
+		C37.setHorizontalAlignment(SwingConstants.LEFT);
 		C37.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		C37.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1768,6 +2612,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(C37);
 
 		C38 = new JTextField();
+		C38.setHorizontalAlignment(SwingConstants.LEFT);
 		C38.setBorder(new LineBorder(new Color(135, 206, 250), 1, true));
 		C38.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1785,6 +2630,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(C38);
 
 		C39 = new JTextField();
+		C39.setHorizontalAlignment(SwingConstants.LEFT);
 		C39.setBorder(new LineBorder(new Color(138, 43, 226)));
 		C39.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1802,6 +2648,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(C39);
 
 		C40 = new JTextField();
+		C40.setHorizontalAlignment(SwingConstants.LEFT);
 		C40.setBorder(new LineBorder(new Color(138, 43, 226)));
 		C40.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1819,6 +2666,7 @@ public class MyCopyPastePanel extends JFrame {
 		ConfigTab.add(C40);
 
 		C41 = new JTextField();
+		C41.setHorizontalAlignment(SwingConstants.LEFT);
 		C41.setBorder(new LineBorder(new Color(138, 43, 226)));
 		C41.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1849,7 +2697,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -1893,7 +2741,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -1916,7 +2764,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -1939,7 +2787,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -1962,7 +2810,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -1985,7 +2833,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2008,7 +2856,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2031,7 +2879,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2054,7 +2902,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2077,7 +2925,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2100,7 +2948,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2123,7 +2971,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2146,7 +2994,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2169,7 +3017,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2192,7 +3040,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2215,7 +3063,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2238,7 +3086,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2261,7 +3109,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2284,7 +3132,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2307,7 +3155,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2330,7 +3178,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2353,7 +3201,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2376,7 +3224,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2399,7 +3247,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2422,7 +3270,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2445,7 +3293,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2468,7 +3316,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2491,7 +3339,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2514,7 +3362,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2536,7 +3384,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2559,7 +3407,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2582,7 +3430,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2605,7 +3453,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2628,7 +3476,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2651,7 +3499,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2674,7 +3522,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2697,7 +3545,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2720,7 +3568,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2743,7 +3591,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2766,7 +3614,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
@@ -2789,7 +3637,7 @@ public class MyCopyPastePanel extends JFrame {
 				try (FileOutputStream f = new FileOutputStream(properties_file);
 						BufferedOutputStream b = new BufferedOutputStream(f)) {
 					Properties prop = new Properties();
-					writeProperties(prop);
+					updateProperties(prop);
 					prop.store(b, "");
 					b.close();
 					f.close();
